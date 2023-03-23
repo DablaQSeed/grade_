@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="bg-black">
+    <!-- <div class="col-lg-7 col-md-7 col-sm-9 mt-lg-4 mt-md-4 mt-sm-2 mx-auto shadow p-4 rounded-3">
+        <h1 class="text-center text-decoration-underline text-success pb-3">Grade Checker</h1>
+        <div class="form-group my-2">
+            <input type="number" placeholder="Input your score" id="score" class="form-control shadow-sm p-2">
+        </div>
+        <div class="form-group my-4">
+            <button class="btn btn-primary w-100" onclick="checkScore()">Check</button>
+        </div>
+    </div>
+    <div class=" row bg-white d-flex justify-content-center align-items-center" >
+      <div id="showScore" class="col-lg-3 text-center">
+      </div>
+    </div> -->
+
+    <section>
+      <div class="container-fulid px-4 py-5">
+        <div class="container">
+          <div class="row py-5">
+            <div class="col-12 col-lg-7 mx-auto px-4 bg-body-secondary">
+              <div class="px-2">
+                <div class="text-center pb-5">
+                  <img style="height: 200px;"
+                  src="https://edu.sqi.ng/wp-content/uploads/2019/01/co.jpg" alt="">
+                </div>
+                
+             
+               <p class="fs-4 fw-light">
+                Check My Results
+               </p>
+               <h6 class="fs-6 fw-bold">
+                Reg Number/ GSM No
+               </h6>
+               <div class="mb-3 ">
+                <div>
+                  <input type="text" class="form-control" id="score" style="width: 500px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                
+                
+                  <button type="button" class="btn btn-primary btn-sm" onclick="checkScore()" style="width: 200px;">Check Result</button>
+                 <div id="showScore" class="mt-3 text-center"></div>
+                </div>
+               
+              </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+    <script>
+        function checkScore() {
+            var score = document.getElementById("score").value;
+            if (score === "") {
+                var error = "Fill in the blank space"
+                showScore.innerHTML = error;
+                showScore.style.color = "red"
+                showScore.style.fontSize = "15px"
+            }
+            
+             else if (score >= 0 && score <= 39) {
+                var result = "Fail";
+                showScore.innerHTML = result;
+                showScore.style.color = "red";
+                showScore.style.fontSize = "20px"
+            }
+            else if (score >=40 & score <=44) {
+                var result = "Pass";
+                showScore.innerHTML = result;
+                showScore.style.color = "black";
+                showScore.style.fontSize = "20px"
+            }
+            else if (score >=45 & score <=49) {
+                var result = "Average";
+                showScore.innerHTML = result;
+                showScore.style.color = "blue";
+                showScore.style.fontSize = "20px"
+            }
+            else if (score >=50 & score <=59) {
+                var result = "Credit";
+                showScore.innerHTML = result;
+                showScore.style.color = "blue";
+                showScore.style.fontSize = "20px"
+            }
+            else if (score >=60 & score <=69) {
+                var result = "Good";
+                showScore.innerHTML = result;
+                showScore.style.color = "green";
+                showScore.style.fontSize = "20px"
+                showScore.style.fontWeight = "bold"
+            }
+            else if (score >=70 & score <=100) {
+                var result = "Excellent";
+                showScore.innerHTML = result;
+                showScore.style.color = "green";
+                showScore.style.fontSize = "30px"
+                showScore.style.fontWeight = "bolder"
+            }
+            else {
+                var result = "Incorrect Value"
+                showScore.innerHTML = result;
+                showScore.style.color = "red"
+                showScore.style.fontSize = "15px"
+            }
+           
+
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="ms-2 me-2" onload="play()">
+    <div class="col-lg-7 col-md-7 col-sm-9 mt-lg-4 mt-md-4 mt-sm-2 mx-auto shadow p-4 rounded-3">
+        <h1 class="text-center text-decoration-underline">Grade Checker</h1>
+        <div class="form-group my-2">
+            <input type="number" placeholder="Input your score" id="score" class="form-control shadow-sm p-2">
+        </div>
+        <div class="form-group my-4">
+            <button class="btn btn-primary w-100" onclick="checkScore()">Check</button>
+        </div>
+    </div>
+    <div class="mt-5 text-center" id="showScore"></div>
+
+
+    <script>
+        var failAudio = new Audio("audio/fail.mp3");
+
+        function checkScore() {
+            // alert("I am working")
+            var score = document.getElementById("score").value;
+            if (score >= 0 && score <= 39) {
+                // alert("You failed")
+                var result = "You failed";
+                showScore.innerHTML = result;
+                showScore.style.color = "red";
+                failAudio.play();
+            }
+        }
+
+        function play () {
+            var song = new Audio("audio/song.mp3");
+            song.play();
+        }
+    </script>
+</body>
+</html> -->
